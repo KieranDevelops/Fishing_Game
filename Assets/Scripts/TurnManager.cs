@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-    
+   
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +41,8 @@ public class TurnManager : MonoBehaviour
             // Yes it has
             // Out you have caught a fish and the fish stats
             // Ask if you would like to keep it or release it
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Debug.Log("You have caught a fish, it is; "); // ADD A VARIBLE FOR WHAT FISH CAUGHT
 
-
-            }
+            
         }
     }
 }
