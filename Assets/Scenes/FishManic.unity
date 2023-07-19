@@ -414,7 +414,9 @@ MonoBehaviour:
   - {fileID: 627175491}
   - {fileID: 627175491}
   aquarium: []
+  finishTheGame: {fileID: 1912771044}
   isCurrentFish: 1
+  totalAquariumValue: 0
 --- !u!65 &792660953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1268,6 +1270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e2ee5aaab2002e43840c231b3fb5376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAquarium: {fileID: 792660952}
+  turns: 0
+  endGame: 10
 --- !u!4 &1912771045
 Transform:
   m_ObjectHideFlags: 0

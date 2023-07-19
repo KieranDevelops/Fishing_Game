@@ -11,9 +11,12 @@ public class FishManager : MonoBehaviour
     public Fish currentFish;
     public List<Fish> allFish = new List<Fish>(); // creating a List for 
     public List<Fish> aquarium = new List<Fish>();
+
+    public TurnManager finishTheGame;
     #endregion
 
     public bool isCurrentFish = false;
+    public int totalAquariumValue = 0;
 
     #region This call for all fish to access the Fish script and add it to the list
     // Start is called before the first frame update
@@ -37,14 +40,16 @@ public class FishManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                Debug.Log("Press 'R' to catch a fish");
+                
                 // grab a random fish and assign to current fish
                 //caughtFish.FishSetUp();
                 //currentFish = caughtFish;
                 currentFish = allFish[0];
                 allFish.Remove(currentFish);
                 currentFish.FishSetUp();
-                Debug.Log(currentFish.fishType + " " + currentFish.fishLength + " " + currentFish.fishPrice);
+                Debug.Log("You Caught a " + currentFish.fishType + " " + currentFish.fishLength + " cm" + " $" + currentFish.fishPrice + " did you want to Keep it (A) or throw it back in (X)?");
+
+                
             }
         }
 
@@ -57,13 +62,13 @@ public class FishManager : MonoBehaviour
             // if so A to keep X to throw back.
             if (Input.GetKeyDown(KeyCode.A))
             {
-                //Keep Fish
-                Debug.Log("You put the fish into your aquarium");
-                DespawnFish(currentFish);
+                // Keep Fish by pressing a button or the UI text
                 // Is the fish bigger than any fish in your aquarium?
                 // If so compare the lengths by multiply the aquarium fish by and comparing it with the current fish
                 // then remove the smaller as it has been eaten.
-                for ( int i = 0; i < aquarium.Count; i++)
+                Debug.Log("You put the fish into your aquarium.");
+
+                for (int i = 0; i < aquarium.Count; i++)
                 {
                     if ((aquarium[i].fishLength * 2) < currentFish.fishLength)
                     {
@@ -72,17 +77,26 @@ public class FishManager : MonoBehaviour
                     }
 
                 }
-                
 
+                // Despawn the fish out the allFish list
+                // This will call the function DespawnFish and add it to our aquarium.
+
+                DespawnFish(currentFish);
+                
             }
+
+            
+            
+
             if (Input.GetKeyDown(KeyCode.X))
             {
-                //Release Fish
+                // Release Fish by pressing a button or the UI button
+                // This should call the SpawnFish function and add the fish back to the allFish list.
                 SpawnFish(currentFish);
             }
         }
 
-
+        
 
     }
     #endregion
