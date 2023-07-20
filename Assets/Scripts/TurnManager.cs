@@ -8,6 +8,7 @@ public class TurnManager : MonoBehaviour
     public FishManager myAquarium; 
     public int turns = 0;
     public int endGame = 10;
+    
 
     private List<Fish> aquariumList;
 
@@ -17,8 +18,6 @@ public class TurnManager : MonoBehaviour
     {
         List<Fish> aquarium = myAquarium.aquarium;
         aquariumList = aquarium;
-
-        
 
     }
 
@@ -53,13 +52,14 @@ public class TurnManager : MonoBehaviour
 
             FinishGame();
             {
+
                 for (int f = 0; f < aquariumList.Count; f++)
                 {
                     Debug.Log(aquariumList[f].fishType + " " + aquariumList[f].fishLength + " cm" + " $" + aquariumList[f].fishPrice);
-                    myAquarium.totalAquariumValue += aquariumList[f].fishPrice;
-                    Debug.Log("Your aquarium value is worth; " + "$" + myAquarium.totalAquariumValue);
+
                 }
             }
+
 
         }
 
@@ -73,12 +73,17 @@ public class TurnManager : MonoBehaviour
         {
             if (turns < endGame)
                 turns += 1;
+            
         }
         else if (turns >= endGame)
         {
             Debug.Log("You have finished the game, good fishing!");
             Debug.Log("Now lets see what you have caught");
+            for (int f = 0; f < aquariumList.Count; f++)
+            {
+                Debug.Log(aquariumList[f].fishType + " " + aquariumList[f].fishLength + " cm" + " $" + aquariumList[f].fishPrice);
 
+            }
 
         }
     }

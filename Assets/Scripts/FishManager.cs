@@ -49,7 +49,7 @@ public class FishManager : MonoBehaviour
                 currentFish.FishSetUp();
                 Debug.Log("You Caught a " + currentFish.fishType + " " + currentFish.fishLength + " cm" + " $" + currentFish.fishPrice + " did you want to Keep it (A) or throw it back in (X)?");
 
-                
+                finishTheGame.FinishGame(); 
             }
         }
 
