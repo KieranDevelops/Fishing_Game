@@ -13,6 +13,7 @@ public class ButtonTexts : MonoBehaviour
     public TextMeshProUGUI catchFishText; // A text reference to the catch fish button.
     public int turnCountText; // an int to set the value of the turn.
 
+    public FishManager caughtFish;
     #endregion
 
     // Start is called before the first frame update
@@ -33,13 +34,13 @@ public class ButtonTexts : MonoBehaviour
     #region text functions.
     public void AcceptText(string text) // A function to hold a string text
     {
-        acceptText.GetComponent<TextMeshProUGUI>().text = "The fish caught was added to the aquarium"; // This is used to change the input text.
+        acceptText.GetComponent<TextMeshProUGUI>().text = "The " + caughtFish.currentFish + " was added to the aquarium"; // This is used to change the input text.
         Debug.Log("Press A to continue"); // Some text
     }
 
     public void ReleaseText(string text) // A function to hold a string text
     {
-        releaseText.GetComponent<TextMeshProUGUI>().text = "Released the fish back into the ocean"; // This is used to change the input text.Text
+        releaseText.GetComponent<TextMeshProUGUI>().text = "Released the " + caughtFish.currentFish + " back into the ocean"; // This is used to change the input text.Text
         Debug.Log("Press X to continue"); // Some text
     }
 
